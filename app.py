@@ -4,7 +4,7 @@ from db import items, stores
 app = Flask(__name__)
 
 
-@app.get("/store")  # httop://127.0.0.1:5000/store
+@app.get("/store")
 def get_stores():
     return {"stores": stores}
 
