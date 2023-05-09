@@ -28,12 +28,12 @@ def create_item(name):
     return {"message": "store not found"}, 404
 
 
-@app.get("/store/<string:name>")
+@app.get("/store/<string:store_id>")
 def get_store(name):
-    for store in stores:
-        if store["name"] == name:
-            return store
-    return {"message": "Store not found"}, 404
+    try:
+        return stores[store_id]
+    except KeyError:
+        return {"message": "Store not found"}, 404
 
 
 @app.get("/store/<string:name>/item")
